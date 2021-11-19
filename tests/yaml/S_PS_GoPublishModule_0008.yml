@@ -23,7 +23,7 @@ pipelines:
           integrations:
             - name: s_artifactory
           version: "v0.8.${run_number}"
-          targetRepository: "test-automation-go-local"
+          targetRepository: "test-automation-go-local-1"
           sourceLocation: "tests/Go"
           self: false
       - name: S_PS_GoPublishModule_0008_2
@@ -35,5 +35,5 @@ pipelines:
             - name: s_artifactory
         execution:
           onExecute:
-            - jfrog rt download --flat --insecure-tls=${no_verify_ssl} --limit=1 "test-automation-go-local/go.service/@v/v0.8.${run_number}.zip" "v0.8.${run_number}.zip"
+            - jfrog rt download --flat --insecure-tls=${no_verify_ssl} --limit=1 "test-automation-go-local-1/go.service/@v/v0.8.${run_number}.zip" "v0.8.${run_number}.zip"
             - if ( Test-Path "v0.8.${run_number}.zip" ) { throw "Artifact found" }
