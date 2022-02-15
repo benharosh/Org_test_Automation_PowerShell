@@ -54,6 +54,7 @@ pipelines:
           releaseName: ${RELEASE_NAME}
           flags: "--wait --timeout 120s -n ${k8s_namespace} --debug"
           valueFilePaths:
+            - ${res_S_PS_HelmDeploy_7602_0002_GitRepo_resourcePath}\tests\core\helmdeploy\simplehelm\values2.yaml
             - values2.yaml
           lint: true
           lintFlags: "--strict"
